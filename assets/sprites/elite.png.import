@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/poison.png-9007942f29ec02097dff4aa4c4cb9385.stex"
+path="res://.import/elite.png-7416e15e374a69fa3e9e59d4adde8032.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/poison.png"
-dest_files=[ "res://.import/poison.png-9007942f29ec02097dff4aa4c4cb9385.stex" ]
+source_file="res://assets/sprites/elite.png"
+dest_files=[ "res://.import/elite.png-7416e15e374a69fa3e9e59d4adde8032.stex" ]
 
 [params]
 
