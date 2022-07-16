@@ -20,7 +20,7 @@ script/source = "extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBoxContainer/Start.grab_focus()
-	
+
 	if not PlayerInfo.dice_bag:
 		init_dice_bag()
 
@@ -28,18 +28,18 @@ func AttackFace(val=1): return load(\"res://src/DiceFaces/DiceFaceAttack.gd\").n
 func DefenceFace(val=1): return load(\"res://src/DiceFaces/DiceFaceDefence.gd\").new()._init(val)
 func init_dice_bag():
 	var dice_builder=load(\"res://src/Dice/DiceBuilder.gd\")
-	
+
 
 	var AttackDice=dice_builder.build_dice_l([
 		AttackFace(),AttackFace(2),AttackFace(),
 		AttackFace(),AttackFace(2),AttackFace()
 	])
-	
+
 	var DefenceDice=dice_builder.build_dice_l([
 		DefenceFace(),DefenceFace(2),DefenceFace(),
 		DefenceFace(),DefenceFace(2),DefenceFace()
 	])
-	
+
 	PlayerInfo.dice_bag=[
 		AttackDice, AttackDice, DefenceDice, DefenceDice, AttackDice
 	]
@@ -55,8 +55,8 @@ func init_dice_bag():
 
 
 func _on_Start_pressed():
+	print(\"Start\")
 	get_tree().change_scene(\"res://src/Combat.tscn\")
-#	get_tree().change_scene(\"res://src/Map/Map.tscn\")
 
 func _on_Quit_pressed():
 #	var x  = 0
@@ -64,16 +64,16 @@ func _on_Quit_pressed():
 	get_tree().quit()
 "
 
+[sub_resource type="DynamicFont" id=2]
+size = 150
+font_data = ExtResource( 4 )
+
 [sub_resource type="DynamicFont" id=3]
 size = 64
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 64
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 150
 font_data = ExtResource( 4 )
 
 [node name="Menu" type="Control"]
@@ -101,33 +101,6 @@ margin_right = 860.0
 margin_bottom = 479.0
 texture = ExtResource( 7 )
 expand = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 21.0
-margin_top = -187.0
-margin_right = 153.0
-margin_bottom = -38.0
-alignment = 1
-
-[node name="Start" type="Button" parent="VBoxContainer"]
-margin_top = 15.0
-margin_right = 132.0
-margin_bottom = 72.0
-focus_neighbour_top = NodePath("../Quit")
-custom_fonts/font = SubResource( 3 )
-text = "Start"
-align = 0
-
-[node name="Quit" type="Button" parent="VBoxContainer"]
-margin_top = 76.0
-margin_right = 132.0
-margin_bottom = 133.0
-focus_neighbour_bottom = NodePath("../Start")
-custom_fonts/font = SubResource( 4 )
-text = "Quit"
-align = 0
 
 [node name="enemy4" type="TextureRect" parent="."]
 margin_left = 658.0
@@ -220,6 +193,33 @@ margin_right = 877.0
 margin_bottom = 580.0
 texture = ExtResource( 6 )
 expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = -187.0
+margin_right = 153.0
+margin_bottom = -38.0
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+margin_top = 15.0
+margin_right = 132.0
+margin_bottom = 72.0
+focus_neighbour_top = NodePath("../Quit")
+custom_fonts/font = SubResource( 3 )
+text = "Start"
+align = 0
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 76.0
+margin_right = 132.0
+margin_bottom = 133.0
+focus_neighbour_bottom = NodePath("../Start")
+custom_fonts/font = SubResource( 4 )
+text = "Quit"
+align = 0
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
