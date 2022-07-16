@@ -19,10 +19,8 @@ var dice_owned=[]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.base_position=Dice_obj.instance().position
+	self.set_dice(PlayerInfo.dice_bag)
 	print("Ready")
-	for i in range(shown_dice):
-		if not self.add_dice():
-			break
 
 func set_dice(new_dice):
 	self.dice_owned=new_dice
@@ -35,6 +33,9 @@ func reload():
 	
 	for _i in range(shown_dice):
 		self.add_dice()
+
+	update_tower()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -44,26 +45,30 @@ func use_dice(used_dice):
 	used_dice.get_child(0).trigger()
 	
 	used_dice.queue_free()
-	self.remove_child(used_dice)
+	remove_child(used_dice)
+	dice_shown.erase(used_dice)
 	
-	self.update_tower()
 	self.add_dice()
+	self.update_tower()
 	
 
 func add_dice():
 	
 #	TODO use dice from tower
-#	if len(dice_in_tower)==0:
-#		return false
-#
-#	var new_dice=dice_in_tower.pop_front()
+	if len(dice_in_tower)==0:
+		return false
+
+	var new_dice_template=dice_in_tower.pop_front()
 	
-	var new_dice_object=Dice_obj.instance()
+	var new_dice_object=new_dice_template.duplicate(15)
+	new_dice_object.get_child(0).set_faces(new_dice_template.get_child(0).get_faces())
 	
 	var sprite_height=new_dice_object.get_child(0).texture.get_height()
 	new_dice_object.position=base_position-Vector2(0,(sprite_height*1.5+distance_between_dice)*self.get_child_count())
 	
 	self.add_child(new_dice_object)
+	
+	dice_shown.append(new_dice_object)
 	
 	return true
 
@@ -72,3 +77,6 @@ func update_tower():
 		var dice=self.get_child(i)
 		var sprite_height=dice.get_child(0).texture.get_height()
 		dice.position=base_position-Vector2(0,(sprite_height*1.5+distance_between_dice)*i)
+	
+	if len(dice_in_tower)==0 and len(dice_shown)==0:
+		reload()

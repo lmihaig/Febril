@@ -6,8 +6,6 @@ var inital_pos
 
 func _ready():
 	inital_pos = position
-	print(inital_pos)
-	print("=========")
 
 func _on_DiceBottom_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("click"):
@@ -27,3 +25,6 @@ func _input(event):
 			else:
 				self.visible = false
 				self.get_parent().use_dice(self)
+
+func _to_string():
+	return str(self.get_child(0))

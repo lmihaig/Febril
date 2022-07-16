@@ -17,7 +17,34 @@ script/source = "extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBoxContainer/Start.grab_focus()
+	
+	if not PlayerInfo.dice_bag:
+		init_dice_bag()
 
+func AttackFace(val=1): return load(\"res://src/DiceFaces/DiceFaceAttack.gd\").new()._init(val)
+func DefenceFace(val=1): return load(\"res://src/DiceFaces/DiceFaceDefence.gd\").new()._init(val)
+func init_dice_bag():
+	var dice_builder=load(\"res://src/Dice/DiceBuilder.gd\")
+	
+
+	var AttackDice=dice_builder.build_dice_l([
+		AttackFace(),AttackFace(2),AttackFace(),
+		AttackFace(),AttackFace(2),AttackFace()
+	])
+	
+	var DefenceDice=dice_builder.build_dice_l([
+		DefenceFace(),DefenceFace(2),DefenceFace(),
+		DefenceFace(),DefenceFace(2),DefenceFace()
+	])
+	
+	PlayerInfo.dice_bag=[
+		AttackDice, AttackDice, DefenceDice, DefenceDice, AttackDice
+	]
+	print(AttackFace())
+	print(AttackFace())
+
+	print(AttackDice)
+	print(PlayerInfo.dice_bag,\"init_dice_bag\")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -25,7 +52,8 @@ func _ready():
 
 
 func _on_Start_pressed():
-	get_tree().change_scene(\"res://src/Map/Map.tscn\")
+	get_tree().change_scene(\"res://src/Combat.tscn\")
+#	get_tree().change_scene(\"res://src/Map/Map.tscn\")
 
 func _on_Quit_pressed():
 #	var x  = 0

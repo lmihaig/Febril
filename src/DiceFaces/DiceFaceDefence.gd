@@ -9,11 +9,14 @@ var defence
 
 func _init(defence=1):
 	self.defence=defence
+	return self
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func _to_string():
+	return "Def_"+str(defence)
 
 func activate(player, enemy):
 	pass

@@ -14,9 +14,23 @@ func set_faces(faces):
 	self.faces=faces
 	return self
 
+func get_faces():
+	return self.faces.duplicate()
+
+func _to_string():
+	return "Dice"+str(faces)
+
+func info():
+	return str(self)
+
 func trigger():
-	print("CE AI ZIS MAAAA")
-	print("TU STI CINE IS IO")
+	var chosen_faces=[]
+	print(self.faces)
+
+	for i in range(3):
+		chosen_faces.append(self.faces.pop_at(randi()%(6-i)))
+
+	print("chosen: ",chosen_faces)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
