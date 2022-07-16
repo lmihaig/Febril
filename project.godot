@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="gmtk2022"
-run/main_scene="res://src/Map/Map.tscn"
+run/main_scene="res://src/Combat.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerInfo="*res://src/PlayerInfo.gd"
 
 [input]
 

@@ -1,10 +1,5 @@
-# used for getting a dice face from const
 
-enum DiceType {
-	ATTACK_DICE,
-}
 
-func getDiceFace(diceType):
-	match diceType:
-		DiceType.ATTACK_DICE:
-			pass
+var A="A"
+var Attack=preload("res://src/DiceFaces/DiceFaceAttack.gd")
+var Defence=preload("res://src/DiceFaces/DiceFaceDefence.gd")

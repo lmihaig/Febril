@@ -4,14 +4,15 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
-func _init():
-	pass
+var faces
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func set_faces(faces):
+	self.faces=faces
+	return self
 
 func trigger():
 	print("CE AI ZIS MAAAA")
