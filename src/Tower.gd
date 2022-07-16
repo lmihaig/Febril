@@ -1,0 +1,73 @@
+extends Node
+
+export(int) var shown_dice
+export(int) var distance_between_dice=10
+
+
+const Dice_obj=preload("res://src/Dice/Dice.tscn")
+
+var base_position
+
+
+
+var dice_in_tower=[]
+var dice_shown=[]
+var dice_owned=[]
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	print("Ready")
+	for i in range(shown_dice):
+		var new_dice=Dice_obj.instance()
+		base_position=new_dice.position
+		
+		var sprite_height=new_dice.get_child(0).texture.get_height()
+		new_dice.position=base_position-Vector2(0,(sprite_height*1.5+distance_between_dice)*i)
+		self.add_child(new_dice)
+
+func set_dice(new_dice):
+	self.dice_owned=new_dice
+	
+	self.reload()
+
+func reload():
+	self.dice_in_tower=dice_owned.duplicate()
+	self.dice_in_tower.shuffle()
+	
+	for _i in range(shown_dice):
+		self.add_dice()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+func use_dice(used_dice):
+	pass
+	# dice action
+	used_dice.get_child(0).trigger()
+	
+	used_dice.queue_free()
+	self.remove_child(used_dice)
+	
+	self.update_tower()
+	self.add_dice()
+	
+
+func add_dice():
+	
+#	TODO use dice from tower
+	
+	var new_dice=Dice_obj.instance()
+	
+	var sprite_height=new_dice.get_child(0).texture.get_height()
+	new_dice.position=base_position-Vector2(0,(sprite_height*1.5+distance_between_dice)*self.get_child_count())
+	
+	self.add_child(new_dice)	
+
+func update_tower():
+	print("AA")
+	for i in range(self.get_child_count()):
+		print(i)
+		var dice=self.get_child(i)
+		var sprite_height=dice.get_child(0).texture.get_height()
+		dice.position=base_position-Vector2(0,(sprite_height*1.5+distance_between_dice)*i)
