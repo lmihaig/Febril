@@ -1,10 +1,10 @@
 extends Node2D
 
-const plane_len = 30
-const node_count = plane_len * plane_len / 12
-const path_count = 12
+const plane_len = 24
+const path_count = 10
+const node_count = plane_len * plane_len / path_count
 
-const map_scale = 20.0
+const map_scale = 24
 
 var events = {}
 var event_scene = preload("res://src/Map/Event.tscn")
@@ -16,10 +16,10 @@ func _ready():
 	for k in map_data.nodes.keys():
 		var point = map_data.nodes[k]
 		var event = event_scene.instance()
-		event.position = point * map_scale + Vector2(200, 0)
+		event.position = point * map_scale + Vector2(100, 0)
 		add_child(event)
 		events[k] = event
-	
+		
 	for path in map_data.paths:
 		for i in range(path.size() - 1):
 			var index1 = path[i]
