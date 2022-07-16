@@ -28,4 +28,3 @@ func _ready():
 			var index2 = path[i + 1]
 			
 			events[index1].add_child_event(events[index2])
-	

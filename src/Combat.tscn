@@ -33,7 +33,7 @@ custom_constants/separation = 50
 
 [node name="PlayerTower" type="TextureRect" parent="PlayerContainer"]
 margin_right = 95.0
-margin_bottom = 388.0
+margin_bottom = 466.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 4
@@ -42,31 +42,31 @@ shown_dice = 2
 
 [node name="PlayerStats" type="VBoxContainer" parent="PlayerContainer"]
 margin_left = 145.0
-margin_right = 401.0
-margin_bottom = 388.0
+margin_right = 501.0
+margin_bottom = 466.0
 mouse_filter = 2
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="Player" type="TextureRect" parent="PlayerContainer/PlayerStats"]
-margin_top = 169.0
-margin_right = 256.0
-margin_bottom = 334.0
+margin_top = 247.0
+margin_right = 356.0
+margin_bottom = 412.0
 mouse_filter = 2
 size_flags_vertical = 0
 texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="PlayerHP" type="ProgressBar" parent="PlayerContainer/PlayerStats"]
-margin_top = 338.0
-margin_right = 256.0
-margin_bottom = 352.0
+margin_top = 416.0
+margin_right = 356.0
+margin_bottom = 430.0
 mouse_filter = 2
 
 [node name="PlayerBuffs" type="HBoxContainer" parent="PlayerContainer/PlayerStats"]
-margin_top = 356.0
-margin_right = 256.0
-margin_bottom = 388.0
+margin_top = 434.0
+margin_right = 356.0
+margin_bottom = 466.0
 mouse_filter = 2
 
 [node name="Def" type="TextureRect" parent="PlayerContainer/PlayerStats/PlayerBuffs"]
@@ -103,31 +103,31 @@ mouse_filter = 2
 custom_constants/separation = 50
 
 [node name="EnemyStats" type="VBoxContainer" parent="EnemyContainer"]
-margin_right = 256.0
-margin_bottom = 385.0
+margin_right = 356.0
+margin_bottom = 461.0
 mouse_filter = 2
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="Enemy" type="TextureRect" parent="EnemyContainer/EnemyStats"]
-margin_top = 166.0
-margin_right = 256.0
-margin_bottom = 331.0
+margin_top = 242.0
+margin_right = 356.0
+margin_bottom = 407.0
 mouse_filter = 2
 size_flags_vertical = 0
 texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="EvemyHP" type="ProgressBar" parent="EnemyContainer/EnemyStats"]
-margin_top = 335.0
-margin_right = 256.0
-margin_bottom = 349.0
+margin_top = 411.0
+margin_right = 356.0
+margin_bottom = 425.0
 mouse_filter = 2
 
 [node name="EnemyBuffs" type="HBoxContainer" parent="EnemyContainer/EnemyStats"]
-margin_top = 353.0
-margin_right = 256.0
-margin_bottom = 385.0
+margin_top = 429.0
+margin_right = 356.0
+margin_bottom = 461.0
 mouse_filter = 2
 size_flags_vertical = 0
 
@@ -150,9 +150,9 @@ margin_bottom = 32.0
 mouse_filter = 2
 
 [node name="EnemyTower" type="TextureRect" parent="EnemyContainer"]
-margin_left = 306.0
-margin_right = 401.0
-margin_bottom = 385.0
+margin_left = 406.0
+margin_right = 501.0
+margin_bottom = 461.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 4

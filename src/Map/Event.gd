@@ -14,7 +14,6 @@ var encounterType
 var index
 
 func _init(index = -1):
-	print(index)
 	if index == 0:
 		self.encounterType = type.Start
 	elif index == 1:
@@ -45,9 +44,9 @@ func _ready():
 func set_details():
 	match self.encounterType:
 		type.Start:
-			texture = load("res://assets/sprites/shop.png")
+			texture = load("res://assets/sprites/start.png")
 		type.Finish:
-			texture = load("res://assets/sprites/shop.png")
+			texture = load("res://assets/sprites/finish.png")
 		type.Fight:
 			texture = load("res://assets/sprites/fight.png")
 		type.Elite:
