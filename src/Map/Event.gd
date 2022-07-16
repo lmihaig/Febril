@@ -1,37 +1,49 @@
 extends Node2D
 
-const margin = 10
-var encounterType = type.Fight
-var children: Array = []
 enum type {
 	Start,
 	Fight,
 	Elite,
 	Shop,
 	Rest,
-	Finish
-	}
+	Finish,
+	None
+}
+
+var encounterType
+var index
+
+func _init(index = -1):
+	print(index)
+	if index == 0:
+		self.encounterType = type.Start
+	elif index == 1:
+		self.encounterType = type.Finish
+	else:
+		self.encounterType = type.None
+
+const margin = 10
+var children: Array = []
+
 
 var texture = ImageTexture.new()
 	
 func _ready():
 	randomize()
-	if encounterType == type.Start or encounterType == type.Finish:
-		pass
-	else:
+	if self.encounterType == type.None:
 		var encounter = randi() % 100
 		if encounter in range(70):
-			encounterType = type.Fight
+			self.encounterType = type.Fight
 		if encounter in range(70,80):
-			encounterType = type.Elite
+			self.encounterType = type.Elite
 		if encounter in range(80,90):
-			encounterType = type.Rest
+			self.encounterType = type.Rest
 		if encounter in range(90,100):
-			encounterType = type.Shop
+			self.encounterType = type.Shop
 	set_details()
 	
 func set_details():
-	match encounterType:
+	match self.encounterType:
 		type.Start:
 			texture = load("res://assets/sprites/shop.png")
 		type.Finish:
@@ -52,7 +64,7 @@ func add_child_event(child):
 
 func _draw():
 	draw_texture(texture, -texture.get_size()/2)
-	print(children)
+	# print(children)
 	
 	for child in children:
 		var line = child.position - position
