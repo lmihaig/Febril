@@ -14,7 +14,6 @@ var encounterType
 var index
 
 func _init(index = -1):
-	print(index)
 	if index == 0:
 		self.encounterType = type.Start
 	elif index == 1:
