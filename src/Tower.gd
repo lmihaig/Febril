@@ -40,7 +40,6 @@ func reload():
 #	pass
 
 func use_dice(used_dice):
-	pass
 	# dice action
 	used_dice.get_child(0).trigger()
 	
@@ -54,10 +53,10 @@ func use_dice(used_dice):
 func add_dice():
 	
 #	TODO use dice from tower
-	if len(dice_in_tower)==0:
-		return false
-		
-	var new_dice=dice_in_tower.pop_front()
+#	if len(dice_in_tower)==0:
+#		return false
+#
+#	var new_dice=dice_in_tower.pop_front()
 	
 	var new_dice_object=Dice_obj.instance()
 	
