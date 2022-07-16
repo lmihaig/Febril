@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shield.png-46d74908b0ac118b50397d7021ae31f8.stex"
+path="res://.import/diceling3.png-0fa6cf45a49a0fa3a92b7ded7bab19ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shield.png"
-dest_files=[ "res://.import/shield.png-46d74908b0ac118b50397d7021ae31f8.stex" ]
+source_file="res://assets/sprites/diceling3.png"
+dest_files=[ "res://.import/diceling3.png-0fa6cf45a49a0fa3a92b7ded7bab19ef.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
