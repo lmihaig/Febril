@@ -5,10 +5,10 @@ extends "res://src/DiceFaces/DiceFace.gd"
 # var a = 2
 # var b = "text"
 
-var attack
+var defence
 
-func _init(attack=1):
-	self.attack=attack
+func _init(defence=1):
+	self.defence=defence
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
