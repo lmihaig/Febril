@@ -44,9 +44,9 @@ func _ready():
 func set_details():
 	match self.encounterType:
 		type.Start:
-			texture = load("res://assets/sprites/shop.png")
+			texture = load("res://assets/sprites/start.png")
 		type.Finish:
-			texture = load("res://assets/sprites/shop.png")
+			texture = load("res://assets/sprites/finish.png")
 		type.Fight:
 			texture = load("res://assets/sprites/fight.png")
 		type.Elite:
