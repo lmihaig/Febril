@@ -1,24 +1,30 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/combat_bg.png" type="Texture" id=1]
-[ext_resource path="res://assets/shield.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/shield.png" type="Texture" id=2]
 [ext_resource path="res://assets/dice_tower.png" type="Texture" id=3]
 [ext_resource path="res://assets/enemy.png" type="Texture" id=4]
-[ext_resource path="res://src/drag_dice.gd" type="Script" id=5]
-[ext_resource path="res://assets/dice.png" type="Texture" id=6]
-[ext_resource path="res://src/target_drop.gd" type="Script" id=7]
+[ext_resource path="res://assets/sprites/stun.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/poison.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/diceface.png" type="Texture" id=7]
+[ext_resource path="res://src/drag.gd" type="Script" id=8]
+[ext_resource path="res://src/DropZone.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 25 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 406.5, 307 )
 
 [node name="Combat" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -7.0
-margin_top = -2.0
-margin_right = 5.0
-margin_bottom = 7.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
 
@@ -30,67 +36,76 @@ anchor_bottom = 0.813
 margin_left = -0.144
 margin_top = -7.62939e-06
 margin_right = 0.471985
+mouse_filter = 2
 custom_constants/separation = 50
 
 [node name="PlayerTower" type="TextureRect" parent="PlayerContainer"]
 margin_right = 95.0
 margin_bottom = 388.0
+mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerContainer/PlayerTower"]
-margin_left = 16.0
-margin_top = 214.0
-margin_right = 82.0
-margin_bottom = 342.0
-alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="PlayerContainer/PlayerTower/VBoxContainer"]
-margin_top = 63.0
-margin_right = 67.0
-margin_bottom = 128.0
-texture = ExtResource( 6 )
-script = ExtResource( 5 )
+anchor_left = 0.189
+anchor_top = 0.567
+anchor_right = 0.853
+anchor_bottom = 0.881
+margin_left = 0.0449982
+margin_top = 0.00398254
+margin_right = -0.0350037
+margin_bottom = 0.171997
+mouse_filter = 2
 
 [node name="PlayerStats" type="VBoxContainer" parent="PlayerContainer"]
 margin_left = 145.0
 margin_right = 401.0
 margin_bottom = 388.0
+mouse_filter = 2
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="Player" type="TextureRect" parent="PlayerContainer/PlayerStats"]
-margin_top = 135.0
+margin_top = 169.0
 margin_right = 256.0
-margin_bottom = 300.0
+margin_bottom = 334.0
+mouse_filter = 2
 size_flags_vertical = 0
 texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="PlayerHP" type="ProgressBar" parent="PlayerContainer/PlayerStats"]
-margin_top = 304.0
+margin_top = 338.0
 margin_right = 256.0
-margin_bottom = 318.0
+margin_bottom = 352.0
+mouse_filter = 2
 
 [node name="PlayerBuffs" type="HBoxContainer" parent="PlayerContainer/PlayerStats"]
-margin_top = 322.0
+margin_top = 356.0
 margin_right = 256.0
 margin_bottom = 388.0
+mouse_filter = 2
 
 [node name="Def" type="TextureRect" parent="PlayerContainer/PlayerStats/PlayerBuffs"]
-margin_right = 67.0
-margin_bottom = 66.0
+margin_right = 32.0
+margin_bottom = 32.0
+mouse_filter = 2
 texture = ExtResource( 2 )
+stretch_mode = 1
 
 [node name="Poison" type="TextureRect" parent="PlayerContainer/PlayerStats/PlayerBuffs"]
-margin_left = 71.0
-margin_right = 71.0
-margin_bottom = 66.0
+margin_left = 36.0
+margin_right = 68.0
+margin_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource( 6 )
 
 [node name="Stun" type="TextureRect" parent="PlayerContainer/PlayerStats/PlayerBuffs"]
-margin_left = 75.0
-margin_right = 75.0
-margin_bottom = 66.0
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource( 5 )
 
 [node name="EnemyContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.604
@@ -101,59 +116,82 @@ margin_left = 0.503967
 margin_top = -0.200005
 margin_right = 0.0959473
 margin_bottom = 0.199982
+mouse_filter = 2
 custom_constants/separation = 50
 
 [node name="EnemyStats" type="VBoxContainer" parent="EnemyContainer"]
 margin_right = 256.0
 margin_bottom = 385.0
+mouse_filter = 2
 size_flags_horizontal = 3
 alignment = 2
 
 [node name="Enemy" type="TextureRect" parent="EnemyContainer/EnemyStats"]
-margin_top = 132.0
+margin_top = 166.0
 margin_right = 256.0
-margin_bottom = 297.0
+margin_bottom = 331.0
+mouse_filter = 2
 size_flags_vertical = 0
 texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="EvemyHP" type="ProgressBar" parent="EnemyContainer/EnemyStats"]
-margin_top = 301.0
+margin_top = 335.0
 margin_right = 256.0
-margin_bottom = 315.0
+margin_bottom = 349.0
+mouse_filter = 2
 
 [node name="EnemyBuffs" type="HBoxContainer" parent="EnemyContainer/EnemyStats"]
-margin_top = 319.0
+margin_top = 353.0
 margin_right = 256.0
 margin_bottom = 385.0
+mouse_filter = 2
 size_flags_vertical = 0
 
 [node name="Def" type="TextureRect" parent="EnemyContainer/EnemyStats/EnemyBuffs"]
-margin_right = 67.0
-margin_bottom = 66.0
+margin_right = 32.0
+margin_bottom = 32.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 
 [node name="Poison" type="TextureRect" parent="EnemyContainer/EnemyStats/EnemyBuffs"]
-margin_left = 71.0
-margin_right = 71.0
-margin_bottom = 66.0
+margin_left = 36.0
+margin_right = 36.0
+margin_bottom = 32.0
+mouse_filter = 2
 
 [node name="Stun" type="TextureRect" parent="EnemyContainer/EnemyStats/EnemyBuffs"]
-margin_left = 75.0
-margin_right = 75.0
-margin_bottom = 66.0
+margin_left = 40.0
+margin_right = 40.0
+margin_bottom = 32.0
+mouse_filter = 2
 
 [node name="EnemyTower" type="TextureRect" parent="EnemyContainer"]
 margin_left = 306.0
 margin_right = 401.0
 margin_bottom = 385.0
+mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 4
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
-margin_left = 108.0
-margin_top = 9.0
-margin_right = 1022.0
-margin_bottom = 601.0
-script = ExtResource( 7 )
+[node name="DiceBottom" type="Area2D" parent="."]
+position = Vector2( 55, 415 )
+script = ExtResource( 8 )
+
+[node name="Diceface" type="Sprite" parent="DiceBottom"]
+position = Vector2( -8.04663e-07, 0.249996 )
+scale = Vector2( 1.5625, 1.57812 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DiceBottom"]
+shape = SubResource( 1 )
+
+[node name="DropZone" type="Area2D" parent="."]
+position = Vector2( 452, 149 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZone"]
+position = Vector2( 61, 158 )
+shape = SubResource( 2 )
+
+[connection signal="input_event" from="DiceBottom" to="DiceBottom" method="_on_DiceBottom_input_event"]
