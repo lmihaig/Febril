@@ -12,14 +12,20 @@ func generate(plane_len, node_count, path_count):
 	var center = Vector2(plane_len / 2, plane_len / 2)
 	for i in range(node_count):
 		while true:
-			var point = Vector2(randi() % plane_len, randi() % plane_len)
+			var new_point = Vector2(randi() % plane_len, randi() % plane_len)
 			
-			var dist_from_center = (point - center).length_squared()
+			var dist_from_center = (new_point - center).length_squared()
 			# only accept points insode of a circle
 			var in_circle = dist_from_center <= plane_len * plane_len / 4
-			if not points.has(point) and in_circle:
-				points.append(point)
-				break
+			if not points.has(new_point) and in_circle:
+				var ok=true;
+				for point in points:
+					if point.distance_to(new_point)<plane_len/15:
+						ok=false
+						break
+				if ok:
+					points.append(new_point)
+					break
 	
 	# step 2: connect all the points into a graph without intersecting edges
 	var pool = PoolVector2Array(points)
