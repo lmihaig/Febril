@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/combat_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/shield.png" type="Texture" id=2]
@@ -8,13 +8,9 @@
 [ext_resource path="res://assets/sprites/poison.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/diceface.png" type="Texture" id=7]
 [ext_resource path="res://src/drag.gd" type="Script" id=8]
-[ext_resource path="res://src/DropZone.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25, 25 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 406.5, 307 )
 
 [node name="Combat" type="Control"]
 anchor_right = 1.0
@@ -45,17 +41,6 @@ margin_bottom = 388.0
 mouse_filter = 2
 texture = ExtResource( 3 )
 stretch_mode = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayerContainer/PlayerTower"]
-anchor_left = 0.189
-anchor_top = 0.567
-anchor_right = 0.853
-anchor_bottom = 0.881
-margin_left = 0.0449982
-margin_top = 0.00398254
-margin_right = -0.0350037
-margin_bottom = 0.171997
-mouse_filter = 2
 
 [node name="PlayerStats" type="VBoxContainer" parent="PlayerContainer"]
 margin_left = 145.0
@@ -185,13 +170,5 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DiceBottom"]
 shape = SubResource( 1 )
-
-[node name="DropZone" type="Area2D" parent="."]
-position = Vector2( 452, 149 )
-script = ExtResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DropZone"]
-position = Vector2( 61, 158 )
-shape = SubResource( 2 )
 
 [connection signal="input_event" from="DiceBottom" to="DiceBottom" method="_on_DiceBottom_input_event"]
