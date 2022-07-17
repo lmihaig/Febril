@@ -13,4 +13,8 @@ func _to_string():
 	return "Atk_" + str(attack)
 
 func activate(player, enemy):
-	pass
+	enemy.damage(self.attack)
+
+func get_texture():
+	texture = load("res://assets/dices/sword_"+str(attack)+".png")
+	return texture

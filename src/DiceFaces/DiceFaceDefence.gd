@@ -13,4 +13,8 @@ func _to_string():
 	return "Def_" + str(defence)
 
 func activate(player, enemy):
-	pass
+	player.add_shield(self.defence)
+
+func get_texture():
+	texture = load("res://assets/dices/shield_"+str(defence)+".png")
+	return texture

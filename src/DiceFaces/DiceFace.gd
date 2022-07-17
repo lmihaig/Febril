@@ -1,7 +1,9 @@
 extends Node
 
+var texture
+
 func _init():
-	pass
+	texture = ImageTexture.new()
 
 func _ready():
 	pass 

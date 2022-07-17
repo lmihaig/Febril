@@ -23,5 +23,6 @@ func trigger():
 		chosen_faces.append(self.faces.pop_at(randi()%(6-i)))
 
 	# print("chosen: ", chosen_faces)
+	get_node("/root/Combat/DiceSellector").start_sellection(chosen_faces)
 
 	return chosen_faces

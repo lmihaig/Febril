@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/diceface.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 25 )
+
+[node name="DiceBottom" type="Area2D"]
+
+[node name="Diceface" type="Sprite" parent="."]
+position = Vector2( -8.04663e-07, 0.249996 )
+scale = Vector2( 1.5625, 1.57812 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[connection signal="input_event" from="." to="." method="_on_DiceBottom_input_event"]
