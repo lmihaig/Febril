@@ -67,7 +67,19 @@ func move(index, encounterType):
 	
 	if len(MapInfo.event_info.values()) == 0:
 		save_events()
-	if encounterType == 1 or encounterType == 2 or encounterType == 5:
+	if encounterType == 1:
+		randomize()
+		var rand = randi() % 2
+		if rand == 0:
+			PlayerInfo.current_enemy = 3
+		else:
+			PlayerInfo.current_enemy = 4
+		get_tree().change_scene("res://src/Combat.tscn")
+	if encounterType == 2:
+		PlayerInfo.current_enemy = 5
+		get_tree().change_scene("res://src/Combat.tscn")
+	if encounterType == 5:
+		PlayerInfo.current_enemy = 6
 		get_tree().change_scene("res://src/Combat.tscn")
 	if encounterType == 3:
 		get_tree().change_scene("res://src/Shop/Shop.tscn")
