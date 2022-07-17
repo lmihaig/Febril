@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/_debug/dice_template.png" type="Texture" id=1]
 [ext_resource path="res://assets/rest_bg.png" type="Texture" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://src/DiceEdit/Selected_Face.gd" type="Script" id=5]
 [ext_resource path="res://assets/temp/outline.png" type="Texture" id=6]
 [ext_resource path="res://src/DiceEdit/Unused_Faces.gd" type="Script" id=7]
+[ext_resource path="res://assets/font/m5x7.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 8 )
 
 [node name="DiceEdit" type="Control"]
 anchor_right = 1.0
@@ -213,8 +218,17 @@ margin_right = 20.0
 columns = 5
 script = ExtResource( 7 )
 
+[node name="Exit" type="Button" parent="."]
+margin_left = 1043.0
+margin_top = 540.0
+margin_right = 1274.0
+margin_bottom = 715.0
+custom_fonts/font = SubResource( 1 )
+text = "EXIT"
+
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag/Dice1" to="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag" method="_on_Dice1_gui_input"]
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag/Dice2" to="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag" method="_on_Dice2_gui_input"]
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag/Dice3" to="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag" method="_on_Dice3_gui_input"]
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag/Dice4" to="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag" method="_on_Dice4_gui_input"]
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag/Dice5" to="MarginContainer/VBoxContainer/MarginContainer/CenterContainer/DiceBag" method="_on_Dice5_gui_input"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

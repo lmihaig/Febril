@@ -43,3 +43,7 @@ func swap_with(unused_face_id):
 	print("swap_done")
 	
 	get_node("MarginContainer/VBoxContainer/HBoxContainer/Selected_Face").update_faces()
+
+
+func _on_Exit_pressed():
+	get_tree().change_scene("res://src/Map/Map.tscn")
