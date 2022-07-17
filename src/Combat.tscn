@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/combat_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/shield.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/sprites/player.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/stun.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/poison.png" type="Texture" id=6]
-[ext_resource path="res://src/Dice/DiceCombat.gd" type="Script" id=7]
 [ext_resource path="res://src/Tower.gd" type="Script" id=10]
 
 [node name="Combat" type="Control"]
@@ -173,4 +172,3 @@ margin_left = 0.039978
 margin_top = 0.039978
 margin_right = 0.239929
 margin_bottom = 0.039978
-script = ExtResource( 7 )
