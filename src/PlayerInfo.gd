@@ -7,3 +7,5 @@ var maxHP = 50
 var HP = maxHP
 
 var coins = 0
+
+var unused_faces=[]
