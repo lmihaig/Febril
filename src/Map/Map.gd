@@ -10,6 +10,7 @@ var events = {}
 var event_scene = preload("res://src/Map/Event.tscn")
 
 func _ready():
+	print("A")
 	var generator = preload("res://src/Map/MapGenerator.gd").new()
 	var map_data = generator.generate(plane_len, node_count, path_count)
 	

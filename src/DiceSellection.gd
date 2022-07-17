@@ -35,6 +35,8 @@ func activate_selected():
 	for face_id in sellected:
 		var face=dice_faces[face_id-1]
 		face.activate(player, enemy)
+		
+	get_node("/root/Combat").player_done()
 
 func _on_Face1_pressed():
 	var face_id=1

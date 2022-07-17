@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/combat_bg.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/shield.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/temp/outline.png" type="Texture" id=13]
 [ext_resource path="res://src/Player.gd" type="Script" id=14]
 [ext_resource path="res://src/Enemy.gd" type="Script" id=15]
+[ext_resource path="res://src/Combat.gd" type="Script" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -24,6 +25,7 @@ font_data = ExtResource( 8 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 16 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -139,7 +141,7 @@ stretch_mode = 1
 flip_h = true
 script = ExtResource( 15 )
 
-[node name="EvemyHP" type="ProgressBar" parent="EnemyContainer/EnemyStats"]
+[node name="EnemyHP" type="ProgressBar" parent="EnemyContainer/EnemyStats"]
 margin_top = 411.0
 margin_right = 375.0
 margin_bottom = 425.0
