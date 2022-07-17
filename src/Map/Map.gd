@@ -1,49 +1,49 @@
 extends Node2D
 
-const plane_len = 22
-const path_count = 8
-const node_count = plane_len * plane_len / path_count
-
-const map_scale = 31
-
-var events = {}
-var event_scene = preload("res://src/Map/Event.tscn")
+var generated = false
 
 func _ready():
-	var generator = preload("res://src/Map/MapGenerator.gd").new()
-	var map_data = generator.generate(plane_len, node_count, path_count)
-	
-	for k in map_data.nodes.keys():
-		var point = map_data.nodes[k]
-		var event = event_scene.instance()
-		event._init(k)
-		event.position = point * map_scale + Vector2(300, 0)
-		
-		add_child(event)
-		events[k] = event
-		
-	for path in map_data.paths:
-		for i in range(path.size() - 1):
-			var index1 = path[i]
-			var index2 = path[i + 1]
+	if not generated:
+		for k in MapInfo.map_data.nodes.keys():
+			var point = MapInfo.map_data.nodes[k]
+			var event = MapInfo.event_scene.instance()
+			event._init(k)
+			event.position = point * MapInfo.map_scale + Vector2(300, 0)
 			
-			events[index1].add_child_event(events[index2])
-	
+			add_child(event)
+			MapInfo.events[k] = event
+			
+		for path in MapInfo.map_data.paths:
+			for i in range(path.size() - 1):
+				var index1 = path[i]
+				var index2 = path[i + 1]
+				
+				MapInfo.events[index1].add_child_event(MapInfo.events[index2])
+		generated = true
+		
 	self.make_event_buttons()
 
 func make_event_buttons():
+	if len(MapInfo.event_info.values()) != 0:
+		for event in MapInfo.events:
+			MapInfo.events[event].texture = MapInfo.event_info[event][0]
+			MapInfo.events[event].encounterType = MapInfo.event_info[event][1]
+			
 	for child in self.get_children():
 		if child is Button or child is Label:
 			self.remove_child(child)
 			
 	var here = Label.new()
-	here.set_global_position(Vector2(events[PlayerInfo.map_position].position[0]-34, events[PlayerInfo.map_position].position[1]-7))
+	here.set_global_position(Vector2(
+		MapInfo.events[PlayerInfo.map_position].position[0]-34, 
+		MapInfo.events[PlayerInfo.map_position].position[1]-7)
+	)
 	here.text = "--->"
 	here.add_color_override("font_color", Color.black)
 	here.show()
 	add_child(here)
 	
-	for event in events[PlayerInfo.map_position].children:
+	for event in MapInfo.events[PlayerInfo.map_position].children:
 		var button = Button.new()
 		if event.encounterType != 4:
 			var pos_x = event.position[0] - 10
@@ -65,6 +65,9 @@ func make_event_buttons():
 func move(index, encounterType):
 	PlayerInfo.map_position = index
 	self.make_event_buttons()
+	
+	if len(MapInfo.event_info.values()) == 0:
+		save_events()
 	if encounterType == 1 or encounterType == 2 or encounterType == 5:
 		get_tree().change_scene("res://src/Combat.tscn")
 	if encounterType == 3:
@@ -85,3 +88,7 @@ func unfocus():
 	for child in self.get_children():
 		if child is Label and child.text != "--->":
 			self.remove_child(child)
+
+func save_events():	
+	for event in MapInfo.events:
+		MapInfo.event_info[MapInfo.events[event].index] = [MapInfo.events[event].texture, MapInfo.events[event].encounterType]

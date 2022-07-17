@@ -17,6 +17,8 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerInfo="*res://src/PlayerInfo.gd"
+MapInfo="*res://src/Map/MapInfo.gd"
+Event="*res://src/Map/Event.gd"
 
 [display]
 
