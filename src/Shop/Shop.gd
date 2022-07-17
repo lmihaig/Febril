@@ -48,12 +48,14 @@ func _on_Item1_pressed():
 		self.bought[0] = true
 		$Dialogue.text = "Good choice"
 		$Coin/Label.text = "x" + str(PlayerInfo.coins)
+		$Item1.hide()
+		
 	print(PlayerInfo.unused_faces)
 		
 func _on_Item2_pressed():
 	var price = 6 * self.items[1][1]
 	if PlayerInfo.coins < price:
-		$Dialogue.text = "That's not enough"		
+		$Dialogue.text = "I'm not giving you a discount"		
 		pass
 	elif self.bought[1] == true:
 		$Dialogue.text = "You already bought this item"
@@ -62,14 +64,15 @@ func _on_Item2_pressed():
 		PlayerInfo.coins -= price
 		PlayerInfo.unused_faces.append(self.items[1][2])
 		self.bought[1] = true
-		$Dialogue.text = "Good choice"
+		$Dialogue.text = "You can handle my strongest dice face"
 		$Coin/Label.text = "x" + str(PlayerInfo.coins)
+		$Item2.hide()
 	print(PlayerInfo.unused_faces)
 	
 func _on_Item3_pressed():
 	var price = 6 * self.items[1][1]
 	if PlayerInfo.coins < price:
-		$Dialogue.text = "That's not enough"		
+		$Dialogue.text = "You can't handle my strongest dice faces"		
 		pass
 	elif self.bought[2] == true:
 		$Dialogue.text = "You already bought this item"
@@ -78,8 +81,9 @@ func _on_Item3_pressed():
 		PlayerInfo.coins -= price
 		PlayerInfo.unused_faces.append(self.items[1][2])
 		self.bought[2] = true
-		$Dialogue.text = "Good choice"
+		$Dialogue.text = "Hope it serves you well"
 		$Coin/Label.text = "x" + str(PlayerInfo.coins)
+		$Item3.hide()
 	print(PlayerInfo.unused_faces)
 
 
