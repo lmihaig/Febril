@@ -14,6 +14,7 @@ var encounterType
 var index
 
 func _init(index = -1):
+	self.index = index
 	if index == 0:
 		self.encounterType = type.Start
 	elif index == 1:
@@ -55,7 +56,7 @@ func set_details():
 			texture = load("res://assets/sprites/shop.png")
 		type.Rest:
 			texture = load("res://assets/sprites/rest.png")
-	
+
 func add_child_event(child):
 	if !children.has(child):
 		children.append(child)
