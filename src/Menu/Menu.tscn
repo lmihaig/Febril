@@ -49,9 +49,9 @@ func init_dice_bag():
 	]
 	
 	PlayerInfo.unused_faces.append(AttackFace())
-	PlayerInfo.unused_faces.append(AttackFace())
 	PlayerInfo.unused_faces.append(AttackFace(2))
-	PlayerInfo.unused_faces.append(DefenceFace(5))
+	PlayerInfo.unused_faces.append(DefenceFace())
+	PlayerInfo.unused_faces.append(DefenceFace(2))
 	print(AttackFace())
 	print(AttackFace())
 
