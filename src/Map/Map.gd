@@ -33,8 +33,15 @@ func _ready():
 
 func make_event_buttons():
 	for child in self.get_children():
-		if child is Button:
+		if child is Button or child is Label:
 			self.remove_child(child)
+			
+	var here = Label.new()
+	here.set_global_position(Vector2(events[PlayerInfo.map_position].position[0]-34, events[PlayerInfo.map_position].position[1]-7))
+	here.text = "--->"
+	here.add_color_override("font_color", Color.black)
+	here.show()
+	add_child(here)
 	
 	for event in events[PlayerInfo.map_position].children:
 		var button = Button.new()
@@ -50,6 +57,8 @@ func make_event_buttons():
 			button.set_size(Vector2(25, 20))
 		button.flat = true
 		button.connect("pressed", self, "move", [event.index, event.encounterType])
+		button.connect("mouse_entered", self, "focus", [event.position])
+		button.connect("mouse_exited", self, "unfocus")
 		button.show()
 		add_child(button)
 
@@ -58,3 +67,17 @@ func move(index, encounterType):
 	self.make_event_buttons()
 	if encounterType == 1 or encounterType == 2 or encounterType == 5:
 		get_tree().change_scene("res://src/Combat.tscn")
+
+func focus(position):
+	print(position)
+	var label = Label.new()
+	label.set_global_position(Vector2(position[0]-30, position[1]-7))
+	label.text = "-->"
+	label.add_color_override("font_color", Color.black)
+	label.show()
+	add_child(label)
+	
+func unfocus():
+	for child in self.get_children():
+		if child is Label and child.text != "--->":
+			self.remove_child(child)
