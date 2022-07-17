@@ -11,6 +11,8 @@ func _on_Item1_pressed():
 	else:
 		PlayerInfo.coins -= 15
 		$Dialogue.text = "Good choice"
+		$Coin/Label.text = "x" + str(PlayerInfo.coins)
+		
 		
 func _on_Item2_pressed():
 	if PlayerInfo.coins < 15:
@@ -19,6 +21,8 @@ func _on_Item2_pressed():
 	else:
 		PlayerInfo.coins -= 15
 		$Dialogue.text = "Hope it serves you well"
+		$Coin/Label.text = "x" + str(PlayerInfo.coins)
+		
 
 func _on_Item3_pressed():
 	if PlayerInfo.coins < 15:
@@ -27,6 +31,8 @@ func _on_Item3_pressed():
 	else:
 		PlayerInfo.coins -= 15
 		$Dialogue.text = "You can handle my strongest potions"
+		$Coin/Label.text = "x" + str(PlayerInfo.coins)
+		
 
 
 func _on_Exit_pressed():
