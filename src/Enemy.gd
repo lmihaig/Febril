@@ -47,7 +47,7 @@ func update_ui():
 	self.ShieldLabel.text = str(shield)
 
 func add_shield(value):
-	shield+=value
+	shield=value
 	self.update_ui()
 
 func subtract_shield(dmg):
@@ -56,7 +56,9 @@ func subtract_shield(dmg):
 	return dmg-subtracted_dmg
 
 func damage(value):
+	print(value," ", shield)
 	value=subtract_shield(value)
+	print(value," ", shield)
 	
 	HP = clamp(HP - value, 0, maxHP)
 	if(HP==0):
@@ -86,4 +88,6 @@ func play():
 	get_node("/root/Combat").enemy_done()
 
 func round_done():
-	shield=0
+	pass
+#	shield=0
+

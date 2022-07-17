@@ -23,9 +23,8 @@ func _ready():
 	$VBoxContainer/Start.grab_focus()
 #	var shop = load(\"res://src/Shop/Shop.tscn\")
 #	var rest = load(\"res://src/Rest/Rest.tscn\")
-	
-	if not PlayerInfo.dice_bag:
-		init_dice_bag()
+	PlayerInfo.HP=PlayerInfo.maxHP
+	init_dice_bag()
 
 func AttackFace(val=1): return load(\"res://src/DiceFaces/DiceFaceAttack.gd\").new()._init(val)
 func DefenceFace(val=1): return load(\"res://src/DiceFaces/DiceFaceDefence.gd\").new()._init(val)
