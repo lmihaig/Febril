@@ -81,4 +81,4 @@ func _on_Item3_pressed():
 
 
 func _on_Exit_pressed():
-	get_tree().change_scene("res://src/Map/Map.tscn")
+	get_tree().change_scene("res://src/DiceEdit/DiceEdit.tscn")
