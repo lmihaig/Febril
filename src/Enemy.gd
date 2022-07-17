@@ -9,6 +9,10 @@ var HPBar
 var HPLabel
 var ShieldLabel
 
+var shieldVal = 1
+var dmgVal = 2
+
+
 func _ready():
 	self.HPBar=self.get_node("../EnemyHP")
 	self.HPLabel=self.get_node("../EnemyHP/Label")
@@ -16,7 +20,20 @@ func _ready():
 	self.HPBar.max_value = maxHP
 	self.HPBar.value = HP
 	self.HPLabel.text = str(HP) + "/" + str(maxHP)
-
+	
+	match PlayerInfo.current_enemy:
+		3: 	
+			shieldVal = 2
+			dmgVal = 1
+		4: 	
+			shieldVal = 1
+			dmgVal = 2
+		5: 	
+			shieldVal = 2
+			dmgVal = 2
+		6: 	
+			shieldVal = 3
+			dmgVal = 3
 
 func update_ui():
 	print("Enemy(HP=%d/%d, shield=%d)"%[HP,maxHP,self.shield])
@@ -50,8 +67,8 @@ func damage(value):
 
 
 func play():
-	pass
-	self.add_shield(1)
-	get_node("/root/Combat/PlayerContainer/PlayerStats/Player").damage(2)
+	
+	self.add_shield(shieldVal)
+	get_node("/root/Combat/PlayerContainer/PlayerStats/Player").damage(dmgVal)
 	
 	get_node("/root/Combat").enemy_done()
