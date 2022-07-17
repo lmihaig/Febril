@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/font/m5x7.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/sprites/rest.png" type="Texture" id=2]
 [ext_resource path="res://src/Rest/Rest.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/table.png" type="Texture" id=4]
+[ext_resource path="res://assets/rest_bg.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -14,12 +16,29 @@ script = ExtResource( 3 )
 [node name="background" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+texture = ExtResource( 5 )
+
+[node name="table1" type="TextureRect" parent="."]
+margin_left = 65.0
+margin_top = 230.0
+margin_right = 632.0
+margin_bottom = 720.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="table2" type="TextureRect" parent="."]
+margin_left = 682.0
+margin_top = 226.0
+margin_right = 1249.0
+margin_bottom = 716.0
+texture = ExtResource( 4 )
+expand = true
 
 [node name="ham1" type="TextureRect" parent="."]
-margin_left = 178.0
-margin_top = 36.0
-margin_right = 473.0
-margin_bottom = 331.0
+margin_left = 225.0
+margin_top = 215.0
+margin_right = 520.0
+margin_bottom = 510.0
 rect_pivot_offset = Vector2( 311, 64 )
 texture = ExtResource( 2 )
 expand = true
@@ -28,50 +47,58 @@ expand = true
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="ham4" type="TextureRect" parent="."]
-margin_left = 747.0
-margin_top = 49.0
-margin_right = 1042.0
-margin_bottom = 344.0
-rect_pivot_offset = Vector2( -587, 0 )
-texture = ExtResource( 2 )
-expand = true
-
-[node name="ham2" type="TextureRect" parent="."]
-margin_left = 797.0
-margin_top = -34.0
-margin_right = 1092.0
-margin_bottom = 261.0
-rect_pivot_offset = Vector2( -587, 0 )
-texture = ExtResource( 2 )
-expand = true
-
-[node name="ham3" type="TextureRect" parent="."]
-margin_left = 849.0
-margin_top = 48.0
-margin_right = 1144.0
-margin_bottom = 343.0
-rect_pivot_offset = Vector2( -587, 0 )
-texture = ExtResource( 2 )
-expand = true
-
 [node name="Heal2" type="Button" parent="."]
-margin_left = 749.0
-margin_top = 324.0
-margin_right = 1079.0
-margin_bottom = 459.0
+margin_left = 830.0
+margin_top = 476.0
+margin_right = 1160.0
+margin_bottom = 611.0
 rect_pivot_offset = Vector2( -722, 0 )
+focus_mode = 0
 custom_fonts/font = SubResource( 1 )
-text = "Heal +45 (15)"
+text = "HEAL +45 (15g)"
 
 [node name="Heal1" type="Button" parent="."]
-margin_left = 137.0
-margin_top = 322.0
-margin_right = 465.0
-margin_bottom = 458.0
+margin_left = 154.0
+margin_top = 472.0
+margin_right = 494.0
+margin_bottom = 608.0
 rect_pivot_offset = Vector2( -722, 0 )
+focus_mode = 0
 custom_fonts/font = SubResource( 1 )
-text = "Heal +15 (FREE)"
+text = "HEAL +15 (FREE)"
+
+[node name="Control" type="Control" parent="."]
+margin_left = -3.0
+margin_top = 9.0
+margin_right = 37.0
+margin_bottom = 49.0
+
+[node name="ham4" type="TextureRect" parent="Control"]
+margin_left = 810.0
+margin_top = 219.0
+margin_right = 1105.0
+margin_bottom = 514.0
+rect_pivot_offset = Vector2( -587, 0 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="ham2" type="TextureRect" parent="Control"]
+margin_left = 860.0
+margin_top = 136.0
+margin_right = 1155.0
+margin_bottom = 431.0
+rect_pivot_offset = Vector2( -587, 0 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="ham3" type="TextureRect" parent="Control"]
+margin_left = 912.0
+margin_top = 218.0
+margin_right = 1207.0
+margin_bottom = 513.0
+rect_pivot_offset = Vector2( -587, 0 )
+texture = ExtResource( 2 )
+expand = true
 
 [connection signal="pressed" from="Heal2" to="." method="_on_Heal2_pressed"]
 [connection signal="pressed" from="Heal1" to="." method="_on_Heal1_pressed"]

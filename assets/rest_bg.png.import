@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/diceface.png-74294f16be3b836b17fb933fa71d36ea.stex"
+path="res://.import/rest_bg.png-2e7876425769c7cb0c00f8c658673993.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/diceface.png"
-dest_files=[ "res://.import/diceface.png-74294f16be3b836b17fb933fa71d36ea.stex" ]
+source_file="res://assets/rest_bg.png"
+dest_files=[ "res://.import/rest_bg.png-2e7876425769c7cb0c00f8c658673993.stex" ]
 
 [params]
 
