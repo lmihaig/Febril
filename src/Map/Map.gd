@@ -48,7 +48,7 @@ func make_event_buttons():
 			var pos_y = event.position[1] - 10
 			button.set_position(Vector2(pos_x, pos_y))
 			button.set_size(Vector2(25, 20))
-		# button.flat = true
+		button.flat = true
 		button.connect("pressed", self, "move", [event.index, event.encounterType])
 		button.show()
 		add_child(button)
