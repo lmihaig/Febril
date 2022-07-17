@@ -17,21 +17,27 @@ func _ready():
 
 func _on_Item1_pressed():
 	if PlayerInfo.coins < 15:
+		$Dialogue.text = "That's not enough"		
 		pass
 	else:
 		PlayerInfo.coins -= 15
+		$Dialogue.text = "Good choice"
 		
 func _on_Item2_pressed():
 	if PlayerInfo.coins < 15:
-			pass
+		$Dialogue.text = "I'm not giving you a discount"		
+		pass
 	else:
 		PlayerInfo.coins -= 15
+		$Dialogue.text = "Hope it serves you well"
 
 func _on_Item3_pressed():
 	if PlayerInfo.coins < 15:
-			pass
+		$Dialogue.text = "You can't handle my strongest potions"		
+		pass
 	else:
 		PlayerInfo.coins -= 15
+		$Dialogue.text = "You can handle my strongest potions"
 
 
 func _on_Exit_pressed():
