@@ -1,14 +1,25 @@
 extends Area2D
 
 var selected = false
+var locked=false
 var inital_pos
 #export(int) var id_in_tower
 
 func _ready():
 	inital_pos = position
 
+
+func lock():
+	locked=true
+	
+func unlock():
+	locked=false
+	
+func get_height():
+	return 50
+
 func _on_DiceBottom_input_event(viewport, event, shape_idx):
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") and not locked:
 		selected = true
 
 func _physics_process(delta):

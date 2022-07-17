@@ -18,8 +18,13 @@ func add_shield(value):
 	shield+=value
 	self.update_ui()
 
+func subtract_shield(dmg):
+	var subtracted_dmg=clamp(dmg,0,self.shield)
+	self.shield-=subtracted_dmg
+	return dmg-subtracted_dmg
+
 func damage(value):
-	value = max(value - self.shield, 0)
+	value=subtract_shield(value)
 	
 	HP = clamp(HP - value, 0, maxHP)
 	if(HP==0):
@@ -28,3 +33,11 @@ func damage(value):
 		# FUCKING DIE
 		
 	self.update_ui()
+
+
+func play():
+	pass
+	self.add_shield(1)
+	get_node("/root/Combat/PlayerContainer/PlayerStats/Player").damage(2)
+	
+	get_node("/root/Combat").enemy_done()

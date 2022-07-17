@@ -19,15 +19,21 @@ func add_shield(value):
 	shield+=value
 	self.update_ui()
 
+func subtract_shield(dmg):
+	var subtracted_dmg=clamp(dmg,0,self.shield)
+	self.shield-=subtracted_dmg
+	return dmg-subtracted_dmg
+
 func damage(value):
-	value = max(value - self.shield, 0)
+	value=subtract_shield(value)
 	
 	PlayerInfo.HP = clamp(PlayerInfo.HP - value, 0, PlayerInfo.maxHP)
 	if(PlayerInfo.HP==0):
-		pass
+		get_tree().change_scene("res://src/Lost/Lost.tscn")
 		# FUCKING DIE
 		
 	self.update_ui()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

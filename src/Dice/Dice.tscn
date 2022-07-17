@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Dice/Dice.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/diceface.png" type="Texture" id=2]
+[ext_resource path="res://assets/_debug/dice_template.png" type="Texture" id=2]
 [ext_resource path="res://src/drag.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -13,7 +13,7 @@ script = ExtResource( 3 )
 
 [node name="Diceface" type="Sprite" parent="."]
 position = Vector2( -8.04663e-07, 0.249996 )
-scale = Vector2( 1.5625, 1.57812 )
+scale = Vector2( 0.4, 0.4 )
 z_index = 1
 texture = ExtResource( 2 )
 script = ExtResource( 1 )

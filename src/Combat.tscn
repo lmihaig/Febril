@@ -26,6 +26,7 @@ font_data = ExtResource( 8 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 16 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -151,7 +152,7 @@ stretch_mode = 1
 flip_h = true
 script = ExtResource( 15 )
 
-[node name="EvemyHP" type="ProgressBar" parent="EnemyContainer/EnemyStats"]
+[node name="EnemyHP" type="ProgressBar" parent="EnemyContainer/EnemyStats"]
 margin_top = 411.0
 margin_right = 375.0
 margin_bottom = 436.0
