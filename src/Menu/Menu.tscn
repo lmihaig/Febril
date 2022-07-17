@@ -21,13 +21,15 @@ script/source = "extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBoxContainer/Start.grab_focus()
-
+#	var shop = load(\"res://src/Shop/Shop.tscn\")
+#	var rest = load(\"res://src/Rest/Rest.tscn\")
+	
 	if not PlayerInfo.dice_bag:
 		init_dice_bag()
 
 func AttackFace(val=1): return load(\"res://src/DiceFaces/DiceFaceAttack.gd\").new()._init(val)
 func DefenceFace(val=1): return load(\"res://src/DiceFaces/DiceFaceDefence.gd\").new()._init(val)
-func init_dice_bag():
+func init_dice_bag():	
 	var dice_builder=load(\"res://src/Dice/DiceBuilder.gd\")
 
 
