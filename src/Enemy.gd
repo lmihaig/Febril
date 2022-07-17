@@ -3,6 +3,8 @@ extends TextureRect
 var shield=0
 var HP=1
 var maxHP=1
+var reward = 10
+
 
 func _ready():
 	pass 
@@ -21,6 +23,7 @@ func damage(value):
 	
 	HP = clamp(HP - value, 0, maxHP)
 	if(HP==0):
+		PlayerInfo.coins += reward
 		get_tree().change_scene("res://src/Map/Map.tscn")
 		# FUCKING DIE
 		
