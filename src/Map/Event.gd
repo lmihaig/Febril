@@ -1,12 +1,12 @@
 extends Node2D
 
 enum type {
-	Start,
-	Fight,
+	Start=0,
+	Fight=1,
 	Elite,
 	Shop,
 	Rest,
-	Finish,
+	Finish=5,
 	None
 }
 

@@ -8,6 +8,6 @@ var current_enemy = false
 var maxHP = 50
 var HP = maxHP
 
-var coins = 100
+var coins = 0
 
 var unused_faces=[]
