@@ -56,4 +56,5 @@ func make_event_buttons():
 func move(index, encounterType):
 	PlayerInfo.map_position = index
 	self.make_event_buttons()
-	print(index, " ", encounterType)
+	if encounterType == 1 or encounterType == 2 or encounterType == 5:
+		get_tree().change_scene("res://src/Combat.tscn")
