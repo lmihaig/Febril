@@ -26,7 +26,11 @@ func damage(value):
 	
 	HP = clamp(HP - value, 0, maxHP)
 	if(HP==0):
-		get_tree().change_scene("res://src/Map/Map.tscn")
+		if PlayerInfo.current_enemy != 6:
+			get_tree().change_scene("res://src/Map/Map.tscn")
+		else:
+			get_tree().change_scene("res://src/Win/Win.tscn")
+			
 		# FUCKING DIE
 		
 	self.update_ui()

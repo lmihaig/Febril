@@ -19,8 +19,12 @@ script/source = "extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	PlayerInfo.map_position = 0
+	MapInfo.map_data = MapInfo.generator.generate(MapInfo.plane_len, MapInfo.node_count, MapInfo.path_count)
+	MapInfo.event_info = {}
+	
 	$VBoxContainer/Start.grab_focus()
-
+	
 	if not PlayerInfo.dice_bag:
 		init_dice_bag()
 

@@ -11,14 +11,12 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	PlayerInfo.map_position = 0
+	MapInfo.map_data = MapInfo.generator.generate(MapInfo.plane_len, MapInfo.node_count, MapInfo.path_count)
+	MapInfo.event_info = {}
+	MapInfo.event_scene = preload(\"res://src/Map/Event.tscn\")
+	MapInfo.events = {}
 	$VBoxContainer/Start.grab_focus()
 
 	if not PlayerInfo.dice_bag:
