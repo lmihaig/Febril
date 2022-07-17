@@ -14,7 +14,7 @@ func update_ui():
 	
 
 func add_shield(value):
-	shield+=value
+	shield=value
 	self.update_ui()
 
 func subtract_shield(dmg):
