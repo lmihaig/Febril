@@ -28,14 +28,32 @@ func _ready():
 			var index2 = path[i + 1]
 			
 			events[index1].add_child_event(events[index2])
-			
-	for event in events:
+	
+	self.make_event_buttons()
+
+func make_event_buttons():
+	for child in self.get_children():
+		if child is Button:
+			self.remove_child(child)
+	
+	for event in events[PlayerInfo.map_position].children:
 		var button = Button.new()
-		var pos_x = events[event].position[0] - 8
-		var pos_y = events[event].position[1] - 8
-		button.set_position(Vector2(pos_x, pos_y))
-		button.rect_size
+		if event.encounterType != 4:
+			var pos_x = event.position[0] - 10
+			var pos_y = event.position[1] - 10
+			button.set_position(Vector2(pos_x, pos_y))
+			button.set_size(Vector2(20, 20))
+		else:
+			var pos_x = event.position[0] - 15
+			var pos_y = event.position[1] - 10
+			button.set_position(Vector2(pos_x, pos_y))
+			button.set_size(Vector2(25, 20))
+		# button.flat = true
+		button.connect("pressed", self, "play_event", [event.index, event.encounterType])
 		button.show()
 		add_child(button)
-	
 
+func play_event(index, encounterType):
+	PlayerInfo.map_position = index
+	self.make_event_buttons()
+	print(index, " ", encounterType)
