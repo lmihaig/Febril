@@ -49,11 +49,11 @@ func make_event_buttons():
 			button.set_position(Vector2(pos_x, pos_y))
 			button.set_size(Vector2(25, 20))
 		# button.flat = true
-		button.connect("pressed", self, "play_event", [event.index, event.encounterType])
+		button.connect("pressed", self, "move", [event.index, event.encounterType])
 		button.show()
 		add_child(button)
 
-func play_event(index, encounterType):
+func move(index, encounterType):
 	PlayerInfo.map_position = index
 	self.make_event_buttons()
 	print(index, " ", encounterType)

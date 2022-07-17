@@ -4,7 +4,6 @@ export(int) var shown_dice
 export(int) var distance_between_dice = 10
 
 const Dice_obj = preload("res://src/Dice/Dice.tscn")
-const DiceContainer = preload("res://src/Dice/DiceCombat.gd")
 
 var base_position
 
