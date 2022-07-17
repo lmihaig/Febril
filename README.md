@@ -1,0 +1,3 @@
+# Febril
+
+Febril is a dice based deck-building roguelite made for the 2022 GMTK game jam in just under 50 hours.
