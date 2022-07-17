@@ -70,6 +70,7 @@ margin_top = 389.0
 margin_right = 1097.0
 margin_bottom = 524.0
 rect_pivot_offset = Vector2( -722, 0 )
+focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 text = "HEAL +45 (15)"
 
@@ -79,6 +80,7 @@ margin_top = 391.0
 margin_right = 470.0
 margin_bottom = 527.0
 rect_pivot_offset = Vector2( -722, 0 )
+focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 text = "HEAL +15 (FREE)"
 

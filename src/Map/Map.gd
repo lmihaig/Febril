@@ -67,6 +67,10 @@ func move(index, encounterType):
 	self.make_event_buttons()
 	if encounterType == 1 or encounterType == 2 or encounterType == 5:
 		get_tree().change_scene("res://src/Combat.tscn")
+	if encounterType == 3:
+		get_tree().change_scene("res://src/Shop.tscn")
+	if encounterType == 4:
+		get_tree().change_scene("res://src/Rest.tscn")
 
 func focus(position):
 	print(position)
