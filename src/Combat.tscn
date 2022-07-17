@@ -15,7 +15,7 @@
 [ext_resource path="res://assets/temp/outline.png" type="Texture" id=13]
 [ext_resource path="res://src/Player.gd" type="Script" id=14]
 [ext_resource path="res://src/Enemy.gd" type="Script" id=15]
-[ext_resource path="res://src/PlayerHP.gd" type="Script" id=16]
+[ext_resource path="res://src/Combat.gd" type="Script" id=16]
 [ext_resource path="res://assets/sprites/shop.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=1]
@@ -39,10 +39,10 @@ __meta__ = {
 }
 
 [node name="Coin" type="TextureRect" parent="."]
-margin_left = 93.0
-margin_top = 48.0
-margin_right = 166.0
-margin_bottom = 117.0
+margin_left = 61.0
+margin_top = 158.0
+margin_right = 134.0
+margin_bottom = 227.0
 mouse_filter = 2
 texture = ExtResource( 17 )
 stretch_mode = 1
@@ -52,9 +52,10 @@ anchor_left = 0.006
 anchor_top = 0.165
 anchor_right = 0.397
 anchor_bottom = 0.813
-margin_left = -0.144
-margin_top = -7.62939e-06
+margin_left = -0.144001
+margin_top = 131.2
 margin_right = 0.471985
+margin_bottom = 131.2
 mouse_filter = 2
 custom_constants/separation = 50
 
@@ -91,9 +92,8 @@ script = ExtResource( 14 )
 [node name="PlayerHP" type="ProgressBar" parent="PlayerContainer/PlayerStats"]
 margin_top = 416.0
 margin_right = 376.0
-margin_bottom = 441.0
+margin_bottom = 430.0
 mouse_filter = 2
-script = ExtResource( 16 )
 
 [node name="PlayerBuffs" type="HBoxContainer" parent="PlayerContainer/PlayerStats"]
 margin_top = 434.0
@@ -127,10 +127,10 @@ anchor_left = 0.604
 anchor_top = 0.172
 anchor_right = 0.996
 anchor_bottom = 0.813
-margin_left = 0.503967
-margin_top = -0.200005
-margin_right = 0.0959473
-margin_bottom = 0.199982
+margin_left = 0.504028
+margin_top = 126.16
+margin_right = 0.0960693
+margin_bottom = 126.56
 mouse_filter = 2
 custom_constants/separation = 50
 
@@ -155,7 +155,7 @@ script = ExtResource( 15 )
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer/EnemyStats"]
 margin_top = 411.0
 margin_right = 375.0
-margin_bottom = 436.0
+margin_bottom = 425.0
 mouse_filter = 2
 
 [node name="EnemyBuffs" type="HBoxContainer" parent="EnemyContainer/EnemyStats"]
