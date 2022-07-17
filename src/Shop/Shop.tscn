@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sprites/merchant.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Shopkeeper" type="TextureRect" parent="."]
+margin_left = 629.0
+margin_top = 250.0
+margin_right = 1062.0
+margin_bottom = 683.0
+texture = ExtResource( 1 )
+expand = true

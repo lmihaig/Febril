@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/sprites/player.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/tower.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/main_menu_bg.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/diceling3.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/diceling5.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/diceling6.png" type="Texture" id=8]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Control
@@ -92,6 +93,14 @@ margin_top = 4.0
 margin_right = -5.0481
 margin_bottom = -3.0
 texture = ExtResource( 5 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 663.0
+margin_top = -44.0
+margin_right = 1261.0
+margin_bottom = 554.0
+texture = ExtResource( 8 )
 expand = true
 
 [node name="enemy5" type="TextureRect" parent="."]
