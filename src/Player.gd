@@ -3,7 +3,7 @@ extends TextureRect
 var shield=0
 
 func update_ui():
-	print("Player(HP=%d/%d, shield=%d)"%[PlayerInfo.HP,PlayerInfo.maxHP,self.shield])
+	print("Player(HP=%d/%d, shield=%d)"%[PlayerInfo.HP,PlayerInfo.maxHP,shield])
 	
 	var HPBar=self.get_node("../PlayerHP")
 	var HPLabel=self.get_node("../PlayerHP/Label")
@@ -14,12 +14,12 @@ func update_ui():
 	
 
 func add_shield(value):
-	shield=value
+	shield+=value
 	self.update_ui()
 
 func subtract_shield(dmg):
-	var subtracted_dmg=clamp(dmg,0,self.shield)
-	self.shield-=subtracted_dmg
+	var subtracted_dmg=clamp(dmg,0,shield)
+	shield-=subtracted_dmg
 	return dmg-subtracted_dmg
 
 func damage(value):

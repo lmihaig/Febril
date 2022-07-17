@@ -23,7 +23,6 @@ func player_done():
 	pass
 	
 func enemy_done():
-	pass
 	round_done()
 	var player_tower=get_node("PlayerContainer/PlayerTower")
 	player_tower.unlock()
@@ -33,5 +32,5 @@ func round_done():
 	var player=get_node("PlayerContainer/PlayerStats/Player")
 	var enemy=get_node("EnemyContainer/EnemyStats/Enemy")
 
-	play.round_done()
+	player.round_done()
 	enemy.round_done()

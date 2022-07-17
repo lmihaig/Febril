@@ -47,7 +47,7 @@ func update_ui():
 	self.ShieldLabel.text = str(shield)
 
 func add_shield(value):
-	shield=value
+	shield+=value
 	self.update_ui()
 
 func subtract_shield(dmg):
