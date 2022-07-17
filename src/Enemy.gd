@@ -1,8 +1,8 @@
 extends TextureRect
 
 var shield=0
-var HP=10
-var maxHP=10
+var HP=1
+var maxHP=1
 var reward = 10
 
 var HPBar
