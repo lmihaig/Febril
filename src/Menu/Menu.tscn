@@ -57,7 +57,7 @@ func init_dice_bag():
 
 func _on_Start_pressed():
 	print(\"Start\")
-	get_tree().change_scene(\"res://src/Combat.tscn\")
+	get_tree().change_scene(\"res://src/Map/Map.tscn\")
 
 func _on_Quit_pressed():
 #	var x  = 0
