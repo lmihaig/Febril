@@ -1,13 +1,8 @@
 extends GridContainer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var face_template=preload("res://src/DiceEdit/UnusedFace.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in range(len(PlayerInfo.unused_faces)):
 		var item_obj=face_template.instance()
@@ -25,6 +20,3 @@ func swap_with(event, face_id):
 		print(face_id)
 		get_node("/root/DiceEdit").swap_with(face_id)
 		init_face(get_child(face_id), PlayerInfo.unused_faces[face_id])
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

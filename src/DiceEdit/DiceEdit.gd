@@ -1,15 +1,6 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var dice_id=-1
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 func edit_dice(new_dice_id):
 	if dice_id==new_dice_id:
@@ -18,9 +9,6 @@ func edit_dice(new_dice_id):
 	dice_id=new_dice_id
 	get_node("MarginContainer/VBoxContainer/HBoxContainer/Selected_Face").edit_dice(dice_id)
 	print(dice_id)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func swap_with(unused_face_id):
 	print("dice_id ", dice_id)

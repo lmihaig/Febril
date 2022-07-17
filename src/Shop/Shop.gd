@@ -65,7 +65,7 @@ func _on_Item2_pressed():
 	print(PlayerInfo.unused_faces)
 	
 func _on_Item3_pressed():
-	var price = 6 * self.items[1][1]
+	var price = 6 * self.items[2][1]
 	if PlayerInfo.coins < price:
 		$Dialogue.text = "You can't handle my strongest dice faces"		
 		pass
