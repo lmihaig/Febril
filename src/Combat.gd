@@ -24,6 +24,7 @@ func player_done():
 	
 func enemy_done():
 	pass
+	PlayerInfo.shield = 0
 	var player_tower=get_node("PlayerContainer/PlayerTower")
 	player_tower.unlock()
 	player_tower.add_dice()
