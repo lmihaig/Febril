@@ -24,7 +24,14 @@ func player_done():
 	
 func enemy_done():
 	pass
+	round_done()
 	var player_tower=get_node("PlayerContainer/PlayerTower")
 	player_tower.unlock()
 	player_tower.add_dice()
 	
+func round_done():
+	var player=get_node("PlayerContainer/PlayerStats/Player")
+	var enemy=get_node("EnemyContainer/EnemyStats/Enemy")
+
+	play.round_done()
+	enemy.round_done()

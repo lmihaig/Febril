@@ -84,3 +84,6 @@ func play():
 	get_node("/root/Combat/PlayerContainer/PlayerStats/Player").damage(dmgVal)
 	
 	get_node("/root/Combat").enemy_done()
+
+func round_done():
+	shield=0
