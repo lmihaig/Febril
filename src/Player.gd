@@ -1,19 +1,17 @@
 extends TextureRect
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var shield=0
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 func update_ui():
 	print("Player(HP=%d/%d, shield=%d)"%[PlayerInfo.HP,PlayerInfo.maxHP,self.shield])
 	
 	var HPBar=self.get_node("../PlayerHP")
+	var HPLabel=self.get_node("../PlayerHP/Label")
+	var ShieldLabel=self.get_node("../PlayerBuffs/Def/Label")
+	HPBar.value = PlayerInfo.HP
+	HPLabel.text = str(PlayerInfo.HP) + "/" + str(PlayerInfo.maxHP)
+	ShieldLabel.text = str(shield)
+	
 
 func add_shield(value):
 	shield+=value
@@ -33,7 +31,4 @@ func damage(value):
 		# FUCKING DIE
 		
 	self.update_ui()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+

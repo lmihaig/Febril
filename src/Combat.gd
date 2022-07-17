@@ -10,6 +10,11 @@ func _ready():
 		$EnemyContainer/EnemyStats/Enemy.set_flip_h(false)
 	elif PlayerInfo.current_enemy == 6:
 		$EnemyContainer/EnemyStats/Enemy.texture = load("res://assets/sprites/diceling6.png") 
+	
+	$PlayerContainer/PlayerStats/PlayerHP.max_value = PlayerInfo.maxHP
+	$PlayerContainer/PlayerStats/PlayerHP.value = PlayerInfo.HP
+	$PlayerContainer/PlayerStats/PlayerHP/Label.text = str(PlayerInfo.HP) + "/" + str(PlayerInfo.maxHP)
+	$Coin/Label.text = "x" + str(PlayerInfo.coins)
 
 func player_done():
 	var player=get_node("PlayerContainer/PlayerStats/Player")
