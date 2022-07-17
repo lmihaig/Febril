@@ -19,8 +19,8 @@ func _ready():
 	MapInfo.events = {}
 	$VBoxContainer/Start.grab_focus()
 
-	if not PlayerInfo.dice_bag:
-		init_dice_bag()
+	PlayerInfo.HP=PlayerInfo.maxHP
+	init_dice_bag()
 
 func AttackFace(val=1): return load(\"res://src/DiceFaces/DiceFaceAttack.gd\").new()._init(val)
 func DefenceFace(val=1): return load(\"res://src/DiceFaces/DiceFaceDefence.gd\").new()._init(val)

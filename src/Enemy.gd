@@ -64,8 +64,8 @@ func damage(value):
 			PlayerInfo.coins += reward * PlayerInfo.current_enemy
 			if PlayerInfo.current_enemy == 5:
 				randomize()
-				var possible_items = [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 6]
-				var rand_nr = randi() % 21
+				var possible_items = [2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 6]
+				var rand_nr = randi() % 15
 				var rand_ty = randi() % 2
 				if rand_ty == 0:
 					PlayerInfo.unused_faces.append(load("res://src/DiceFaces/DiceFaceAttack.gd").new()._init(possible_items[rand_nr]))

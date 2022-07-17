@@ -6,9 +6,9 @@ var bought = [false, false, false]
 func _ready():
 	$Coin/Label.text = "x" + str(PlayerInfo.coins)
 	randomize()
-	var possible_items = [1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 6]
+	var possible_items = [2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 5, 5, 6]
 	for _i in range(3):
-		var rand_nr = randi() % 21
+		var rand_nr = randi() % 15
 		var rand_ty = randi() % 2
 		if rand_ty == 0:
 			items.append(["atk", possible_items[rand_nr], load("res://src/DiceFaces/DiceFaceAttack.gd").new()._init(possible_items[rand_nr])])

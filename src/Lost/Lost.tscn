@@ -19,31 +19,38 @@ func _ready():
 	MapInfo.events = {}
 	$VBoxContainer/Start.grab_focus()
 	
-	if not PlayerInfo.dice_bag:
-		init_dice_bag()
+	PlayerInfo.HP=PlayerInfo.maxHP
+	init_dice_bag()
 
 func AttackFace(val=1): return load(\"res://src/DiceFaces/DiceFaceAttack.gd\").new()._init(val)
 func DefenceFace(val=1): return load(\"res://src/DiceFaces/DiceFaceDefence.gd\").new()._init(val)
-func init_dice_bag():
-	var dice_builder=load(\"res://src/Dice/DiceBuilder.gd\")
-
-	var AttackDice=dice_builder.build_dice_l([
+var dice_builder=load(\"res://src/Dice/DiceBuilder.gd\")
+func AttackDice():
+	return dice_builder.build_dice_l([
 		AttackFace(),AttackFace(2),AttackFace(),
 		AttackFace(),AttackFace(2),AttackFace()
 	])
 
-	var DefenceDice=dice_builder.build_dice_l([
+func DefenceDice():
+	return dice_builder.build_dice_l([
 		DefenceFace(),DefenceFace(2),DefenceFace(),
 		DefenceFace(),DefenceFace(2),DefenceFace()
 	])
+	
+func init_dice_bag():	
 
 	PlayerInfo.dice_bag=[
-		AttackDice, AttackDice, DefenceDice, DefenceDice, AttackDice
+		AttackDice(), AttackDice(), DefenceDice(), DefenceDice(), AttackDice()
 	]
+	
+	PlayerInfo.unused_faces.append(AttackFace())
+	PlayerInfo.unused_faces.append(AttackFace(2))
+	PlayerInfo.unused_faces.append(DefenceFace())
+	PlayerInfo.unused_faces.append(DefenceFace(2))
 	print(AttackFace())
 	print(AttackFace())
 
-	print(AttackDice)
+	print(AttackDice())
 	print(PlayerInfo.dice_bag,\"init_dice_bag\")
 
 
